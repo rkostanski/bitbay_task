@@ -2,7 +2,12 @@ export type FontFamily = "primary";
 
 export type DeviceBreakpoint = "mobile";
 
-export type Color = "primary" | "primaryLight" | "secondary" | "background";
+export type Color =
+  | "primary"
+  | "primaryLight"
+  | "secondary"
+  | "background"
+  | "border";
 
 export type Spacing = "base" | "medium" | "small";
 
@@ -32,10 +37,11 @@ export const theme: Theme = {
     primary: "Montserrat",
   },
   color: {
-    primary: "#10328E",
+    primary: "#070F25",
     primaryLight: "#0253C8",
     secondary: "#F73B60",
-    background: "#D9E3FE",
+    background: "#F8F8FB",
+    border: "#D9E3FE",
   },
   fontSize: {
     small: "14px",

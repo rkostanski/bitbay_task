@@ -6,14 +6,14 @@ import { subscribeOrderbook } from "./api/subscribeOrderbook";
 import S from "./styles";
 import { Layout } from "antd";
 import { Row, Col } from "antd";
-import { ThemeProvider as StyledThemeProvider } from "styled-components";
 import { ThemeProvider } from "./context/theme.provider";
+import { Orderbook } from "./compponents/orderbook/orderbook";
 
 const client = new W3CWebSocket("wss://api.bitbay.net/websocket/");
 
-const { Header, Footer, Content } = Layout;
+const { Content } = Layout;
 
-interface IOrder {
+export interface IOrder {
   ra: string;
   ca: string;
   sa: string;
@@ -55,32 +55,18 @@ export const App = () => {
   return (
     <ThemeProvider>
       <Layout>
-        <Header>Header</Header>
         <Content>
           <S.PageWrapper>
             <Row>
               <Col span={12}>
-                <ul>
-                  {buyOrders.map((value) => (
-                    <li>
-                      {value.ra}: {value.co}
-                    </li>
-                  ))}
-                </ul>
+                <Orderbook orders={buyOrders}></Orderbook>
               </Col>
               <Col span={12}>
-                <ul>
-                  {sellOrders.map((value) => (
-                    <li>
-                      {value.ra}: {value.co}
-                    </li>
-                  ))}
-                </ul>
+                <Orderbook orders={sellOrders}></Orderbook>
               </Col>
             </Row>
           </S.PageWrapper>
         </Content>
-        <Footer>Footer</Footer>
       </Layout>
     </ThemeProvider>
   );

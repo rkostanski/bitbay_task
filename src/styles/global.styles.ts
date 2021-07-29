@@ -35,6 +35,6 @@ export const GlobalStyles = createGlobalStyle`
   html, body {
     background-color: ${({ theme }) => theme.color.background};
     color: ${({ theme }) => theme.color.primary};
-    font-size: ${({ theme }) => theme.fontSize.regular};
+    font-size: ${({ theme }) => theme.fontSize.small};
   }
 `;
