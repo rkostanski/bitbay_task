@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
-import './app.less';
+import "./app.less";
 import { w3cwebsocket as W3CWebSocket } from "websocket";
 import { getOrderSchema } from "./api/getOrderSchema";
 import { subscribeOrderbook } from "./api/subscribeOrderbook";
 import S from "./styles";
 import { Layout } from "antd";
 import { Row, Col } from "antd";
+import { ThemeProvider as StyledThemeProvider } from "styled-components";
+import { ThemeProvider } from "./context/theme.provider";
 
 const client = new W3CWebSocket("wss://api.bitbay.net/websocket/");
 
@@ -51,33 +53,35 @@ export const App = () => {
   }, []);
 
   return (
-    <Layout>
-      <Header>Header</Header>
-      <Content>
-        <S.PageWrapper>
-          <Row>
-            <Col span={12}>
-              <ul>
-                {buyOrders.map((value) => (
-                  <li>
-                    {value.ra}: {value.co}
-                  </li>
-                ))}
-              </ul>
-            </Col>
-            <Col span={12}>
-              <ul>
-                {sellOrders.map((value) => (
-                  <li>
-                    {value.ra}: {value.co}
-                  </li>
-                ))}
-              </ul>
-            </Col>
-          </Row>
-        </S.PageWrapper>
-      </Content>
-      <Footer>Footer</Footer>
-    </Layout>
+    <ThemeProvider>
+      <Layout>
+        <Header>Header</Header>
+        <Content>
+          <S.PageWrapper>
+            <Row>
+              <Col span={12}>
+                <ul>
+                  {buyOrders.map((value) => (
+                    <li>
+                      {value.ra}: {value.co}
+                    </li>
+                  ))}
+                </ul>
+              </Col>
+              <Col span={12}>
+                <ul>
+                  {sellOrders.map((value) => (
+                    <li>
+                      {value.ra}: {value.co}
+                    </li>
+                  ))}
+                </ul>
+              </Col>
+            </Row>
+          </S.PageWrapper>
+        </Content>
+        <Footer>Footer</Footer>
+      </Layout>
+    </ThemeProvider>
   );
 };

@@ -2,6 +2,7 @@
   "name": "bitbay",
   "version": "0.1.0",
   "private": true,
+  "typings": "./src/types.d.ts",
   "dependencies": {
     "@craco/craco": "6.2.0",
     "@testing-library/jest-dom": "^5.11.4",
