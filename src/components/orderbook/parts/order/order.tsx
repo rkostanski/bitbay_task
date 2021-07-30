@@ -1,7 +1,8 @@
 import React from "react";
-import S from "./order.styles";
+import Big from "big.js";
 import formatCurrency from "@utils/formatCurrency";
 import { TOrder } from "../../../../types/TOrder";
+import S from "./order.styles";
 
 export const Order = ({
   order,
@@ -12,6 +13,8 @@ export const Order = ({
   currency: string;
   transitionDelay: number;
 }) => {
+  const worth = Big(order.ca).times(order.ra).round(2);
+
   return (
     <S.Order transitionDelay={transitionDelay}>
       <span>
@@ -22,7 +25,7 @@ export const Order = ({
         {currency
           ? formatCurrency({
               currency,
-              value: (Number(order.ca) * Number(order.ra)).toFixed(2),
+              value: worth.toString(),
             })
           : order.ra}
       </span>
