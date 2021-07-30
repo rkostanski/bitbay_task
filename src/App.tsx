@@ -1,23 +1,22 @@
 import React, { useEffect, useState } from "react";
-import Big from "big.js";
-
 import "./app.less";
-import { w3cwebsocket as W3CWebSocket } from "websocket";
-import { getOrderSchema } from "./api/getOrderSchema";
-import { subscribeOrderbook } from "./api/subscribeOrderbook";
-import { unsubscribeOrderbook } from "./api/unsubscribeOrderbook";
-import { Layout } from "antd";
-import { Row, Col } from "antd";
-import { ThemeProvider } from "./context/theme.provider";
-import { Orderbook } from "./compponents/orderbook/orderbook";
-import Select from "./compponents/select/select";
+import Big from "big.js";
+import { Row, Col, Layout } from "antd";
 import { SelectValue } from "antd/lib/select";
-import S from "./app.styles";
-import { tradingStats } from "./api/tradingStats";
-import { Spinner } from "./compponents/spinner/spinner";
-import formatCurrency from "./utils/formatCurrency";
-import availablePairs, { ICurrencyPair } from "./data/availablePairs";
+import { w3cwebsocket as W3CWebSocket } from "websocket";
+import { getOrderSchema } from "@api/getOrderSchema";
+import { subscribeOrderbook } from "@api/subscribeOrderbook";
+import { unsubscribeOrderbook } from "@api/unsubscribeOrderbook";
+import { tradingStats } from "@api/tradingStats";
+import { ThemeProvider } from "@context/theme.provider";
+import { Orderbook } from "@components/orderbook/orderbook";
+import Select from "@components/select/select";
+import { Spinner } from "@components/spinner/spinner";
+import formatCurrency from "@utils/formatCurrency";
+import availablePairs, { ICurrencyPair } from "@data/availablePairs";
 import { TCurrencyPair } from "./types/TCurrencyPair";
+import { TOrder } from "@types_/TOrder";
+import S from "./app.styles";
 
 Big.RM = Big.roundHalfUp;
 
@@ -25,17 +24,9 @@ const client = new W3CWebSocket("wss://api.bitbay.net/websocket/");
 
 const { Content } = Layout;
 
-export interface IOrder {
-  ra: string;
-  ca: string;
-  sa: string;
-  pa: string;
-  co: number;
-}
-
 export const App = () => {
-  const [buyOrders, setBuyOrders] = useState<IOrder[]>([]);
-  const [sellOrders, setSellOrders] = useState<IOrder[]>([]);
+  const [buyOrders, setBuyOrders] = useState<TOrder[]>([]);
+  const [sellOrders, setSellOrders] = useState<TOrder[]>([]);
   const [selectedPair, setSelectedPair] = useState<ICurrencyPair>(
     availablePairs[0]
   );

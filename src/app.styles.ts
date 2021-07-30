@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Row } from "antd";
-import OrderbookStyles from "./compponents/orderbook/orderbook.styles";
+import OrderbookStyles from "./components/orderbook/orderbook.styles";
 
 const PageWrapper = styled.main`
   max-width: 1000px;

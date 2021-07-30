@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { IOrder } from "../../../../App";
 import S from "./order.styles";
-import formatCurrency from "../../../../utils/formatCurrency";
+import formatCurrency from "@utils/formatCurrency";
+import { TOrder } from "../../../../types/TOrder";
 
 export const Order = ({
   order,
   currency,
   transitionDelay,
 }: {
-  order: IOrder;
+  order: TOrder;
   currency: string;
   transitionDelay: number;
 }) => {

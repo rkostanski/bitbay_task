@@ -1,8 +1,8 @@
 import React from "react";
 import S from "./orderbook.styles";
-import { IOrder } from "../../App";
 import { Order } from "./parts/order/order";
 import { Header } from "./parts/header/header";
+import { TOrder } from "../../types/TOrder";
 
 const headerValues = ["Kurs", "Ilość", "Wartość", "Liczba ofert"];
 
@@ -11,7 +11,7 @@ export const Orderbook = ({
   title,
   currency,
 }: {
-  orders: IOrder[];
+  orders: TOrder[];
   title: string;
   currency: string;
 }) => (
