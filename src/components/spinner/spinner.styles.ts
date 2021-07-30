@@ -1,15 +1,9 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { Space } from "antd";
 
-const Spinner = styled(Space)<{ fullSize: boolean }>`
+const Spinner = styled(Space)`
   width: 100%;
   justify-content: center;
-  height: 100%;
-
-  ${({ fullSize }) =>
-    fullSize &&
-    css`
-      height: 100vh;
-    `}
+  height: 100vh;
 `;
 export default { Spinner };

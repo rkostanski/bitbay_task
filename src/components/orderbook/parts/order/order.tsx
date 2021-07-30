@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import S from "./order.styles";
 import formatCurrency from "@utils/formatCurrency";
 import { TOrder } from "../../../../types/TOrder";

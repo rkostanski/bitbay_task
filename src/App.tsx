@@ -15,7 +15,7 @@ import { Spinner } from "@components/spinner/spinner";
 import formatCurrency from "@utils/formatCurrency";
 import availablePairs, { ICurrencyPair } from "@data/availablePairs";
 import { TCurrencyPair } from "./types/TCurrencyPair";
-import { TOrder } from "@types_/TOrder";
+import { TOrder } from "./types/TOrder";
 import S from "./app.styles";
 
 Big.RM = Big.roundHalfUp;
@@ -85,7 +85,7 @@ export const App = () => {
   }, [selectedPair.value]);
 
   if (!buyOrders.length || !sellOrders.length) {
-    return <Spinner fullSize />;
+    return <Spinner />;
   }
 
   return (
