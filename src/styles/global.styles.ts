@@ -36,5 +36,10 @@ export const GlobalStyles = createGlobalStyle`
     background-color: ${({ theme }) => theme.color.background};
     color: ${({ theme }) => theme.color.primary};
     font-size: ${({ theme }) => theme.fontSize.small};
+    
+  }
+
+  .ant-layout {
+    min-height: 100vh !important;
   }
 `;

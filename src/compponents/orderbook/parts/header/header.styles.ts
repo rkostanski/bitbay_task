@@ -5,8 +5,8 @@ const Header = styled.div`
   justify-content: space-between;
   padding: 5px 10px;
   border: 1px solid gray;
-  margin: 10px;
-  background: lightgrey;
+  margin: ${({ theme }) => theme.spacing.small};
+  background: ${({ theme }) => theme.color.backgroundSecondary};
   align-items: center;
   text-align: center;
 

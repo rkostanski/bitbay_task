@@ -1,6 +1,6 @@
-import styled from "styled-components";
+import styled, { css, keyframes } from "styled-components";
 
-const Order = styled.div`
+const Order = styled.li<{ transitionDelay: number }>`
   display: flex;
   justify-content: space-between;
   margin: ${({ theme }) => theme.spacing.small};
@@ -10,9 +10,35 @@ const Order = styled.div`
   align-items: center;
   text-align: center;
 
+  ${({ transitionDelay }) =>
+    transitionDelay &&
+    css`
+      animation-name: ${test};
+      animation-duration: 2s;
+      animation-iteration-count: 1;
+      animation-delay: ${transitionDelay} ms;
+    `}
+
   span {
     flex-basis: 25%;
     flex: 1;
+  }
+`;
+
+const test = keyframes`
+  0% {
+    opacity: 0.2;
+    top: 100px;
+  }
+  20% {
+    opacity: 0.5;
+    top: 0px;
+  }
+  70% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 1;
   }
 `;
 

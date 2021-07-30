@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const Orderbook = styled.div`
-  background-color: white;
   border: 1px solid ${({ theme }) => theme.color.border};
-  margin: ${({ theme }) => `${theme.spacing.base} ${theme.spacing.medium}`};
+  padding: ${({ theme }) => `${theme.spacing.base} ${theme.spacing.medium}`};
+  padding-top: 0;
 `;
 
 const OrdersWrapper = styled.ul`
@@ -11,4 +11,9 @@ const OrdersWrapper = styled.ul`
   margin: 0 auto;
 `;
 
-export default { Orderbook, OrdersWrapper };
+const Title = styled.p`
+  text-align: center;
+  margin: ${({ theme }) => `${theme.spacing.small} auto`};
+`;
+
+export default { Orderbook, OrdersWrapper, Title };

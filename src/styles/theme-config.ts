@@ -5,8 +5,9 @@ export type DeviceBreakpoint = "mobile";
 export type Color =
   | "primary"
   | "primaryLight"
-  | "secondary"
+  | "backgroundSecondary"
   | "background"
+  | "white"
   | "border";
 
 export type Spacing = "base" | "medium" | "small";
@@ -39,9 +40,10 @@ export const theme: Theme = {
   color: {
     primary: "#070F25",
     primaryLight: "#0253C8",
-    secondary: "#F73B60",
     background: "#F8F8FB",
+    backgroundSecondary: "#dedede",
     border: "#D9E3FE",
+    white: "#FFF",
   },
   fontSize: {
     small: "14px",
