@@ -6,6 +6,7 @@ const PageWrapper = styled.main`
   max-width: 1000px;
   margin: ${({ theme }) => `${theme.spacing.base} auto`};
   background-color: ${({ theme }) => theme.color.white};
+  min-width: 420px;
 `;
 
 const PairInfoSection = styled.div`

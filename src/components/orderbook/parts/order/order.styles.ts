@@ -3,7 +3,7 @@ import styled, { css, keyframes } from "styled-components";
 const Order = styled.li<{ transitionDelay: number }>`
   display: flex;
   justify-content: space-between;
-  margin: ${({ theme }) => theme.spacing.small};
+  margin: ${({ theme }) => theme.spacing.small} 0;
   padding: 5px ${({ theme }) => theme.spacing.small};
   border: 1px solid ${({ theme }) => theme.color.border};
   background: ${({ theme }) => theme.color.background};
@@ -20,8 +20,15 @@ const Order = styled.li<{ transitionDelay: number }>`
     `}
 
   span {
-    flex-basis: 25%;
     flex: 1;
+    width: 25%;
+    white-space: break-spaces;
+    word-break: break-all;
+
+    &:first-of-type,
+    &:nth-of-type(3) {
+      word-break: keep-all;
+    }
   }
 `;
 

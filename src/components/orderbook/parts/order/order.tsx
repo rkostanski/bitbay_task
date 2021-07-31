@@ -17,17 +17,13 @@ export const Order = ({
 
   return (
     <S.Order transitionDelay={transitionDelay}>
-      <span>
-        {currency ? formatCurrency({ currency, value: order.ra }) : order.ra}
-      </span>
+      <span>{formatCurrency({ currency, value: order.ra })}</span>
       <span>{order.ca}</span>
       <span>
-        {currency
-          ? formatCurrency({
-              currency,
-              value: worth.toString(),
-            })
-          : order.ra}
+        {formatCurrency({
+          currency,
+          value: worth.toString(),
+        })}
       </span>
       <span>{order.co}</span>
     </S.Order>
