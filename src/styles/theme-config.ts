@@ -12,7 +12,7 @@ export type Color =
 
 export type Spacing = "base" | "medium" | "small";
 
-export type FontSize = "small" | "regular";
+export type FontSize = "xsmall" | "small" | "regular";
 
 export type FontWeight = "bold" | "light" | "regular";
 
@@ -46,6 +46,7 @@ export const theme: Theme = {
     white: "#FFF",
   },
   fontSize: {
+    xsmall: "12px",
     small: "14px",
     regular: "16px",
   },

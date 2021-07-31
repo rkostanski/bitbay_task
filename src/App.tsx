@@ -41,14 +41,14 @@ export const App = () => {
     setSelectedPair(availablePairs.find((pair) => pair.value === pickedPair)!);
   };
 
+  client.onopen = () => {
+    client.send(JSON.stringify(getOrderSchema(selectedPair.value)));
+    client.send(JSON.stringify(subscribeOrderbook(selectedPair.value)));
+  };
+
   const spread = Big(stats.h).minus(stats.l).round(2);
 
   useEffect(() => {
-    client.onopen = () => {
-      client.send(JSON.stringify(getOrderSchema(selectedPair.value)));
-      client.send(JSON.stringify(subscribeOrderbook(selectedPair.value)));
-    };
-
     return () => {
       client.close();
     };

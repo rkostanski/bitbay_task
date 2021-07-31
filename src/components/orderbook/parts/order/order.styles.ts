@@ -14,7 +14,7 @@ const Order = styled.li<{ transitionDelay: number }>`
     transitionDelay &&
     css`
       animation-name: ${test};
-      animation-duration: 2s;
+      animation-duration: 1.5s;
       animation-iteration-count: 1;
       animation-delay: ${transitionDelay} ms;
     `}
@@ -35,11 +35,9 @@ const test = keyframes`
     top: 0px;
   }
   70% {
-    opacity: 0.9;
-  }
-  100% {
     opacity: 1;
   }
+  
 `;
 
 export default { Order };

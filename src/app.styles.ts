@@ -16,6 +16,10 @@ const PairInfoSection = styled.div`
   padding: ${({ theme }) => `${theme.spacing.small} ${theme.spacing.medium}`};
   border: 1px solid ${({ theme }) => theme.color.border};
   margin-bottom: 0;
+
+  @media (max-width: ${({ theme }) => theme.deviceBreakpoint.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 const MaxMinWrapper = styled.div`
